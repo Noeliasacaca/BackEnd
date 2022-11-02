@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Muñeca de payaso",
+    "price": "$100.00",
+    "thumbnail": "https://i.pinimg.com/564x/b4/b5/26/b4b5262cf172f571c60a8695d4d99510.jpg"
+  },
+  {
+    "id": 2,
+    "title": "muñeco de la peste bubónica",
+    "price": "$100.00",
+    "thumbnail": "https://i.pinimg.com/564x/d0/85/b9/d085b9a4657008e025441cbfe3058104.jpg"
+  },
+  {
+    "id": 3,
+    "title": "muñeco de hongo",
+    "price": "$100.00",
+    "thumbnail": "https://i.pinimg.com/564x/2f/6b/6e/2f6b6e65b9a1dd4a84dac70f735fbbc9.jpg"
+  }
+]

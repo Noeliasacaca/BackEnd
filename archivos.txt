@@ -1,1 +1,0 @@
-[{"title":"taza con diseño de sandia","price":1500,"thumbnail":"tazaPorcelana.png","id":0}]

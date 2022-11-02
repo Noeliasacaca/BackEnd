@@ -1,4 +1,6 @@
-const fs = require('fs')
+const fs = require('fs');
+const express = require('express');
+
 class Contenedor {
     constructor(nameArchivo) {
         this.nameArc = nameArchivo
@@ -59,9 +61,28 @@ class Contenedor {
     }
 }
 
-const newArchivo = new Contenedor("./archivos.txt");
-newArchivo.save({ title: "taza con diseño de sandia", price: 1500, thumbnail: "tazaPorcelana.png" }).then(resolve => console.log(resolve));
-newArchivo.getById(1).then(resolve => console.log(resolve));
-newArchivo.getAll().then(resolve => console.log(resolve));
-newArchivo.deleteById(2);
-newArchivo.deleteAll();
+const newArchivo = new Contenedor("./productos.txt");
+const app = express();
+const PORT = 8080;
+
+const server = app.listen(PORT, () => {
+    console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
+})
+
+server.on("error", error => console.log(`Error en servidor ${error}`))
+
+app.get('/', (req, res) => {
+    res.end("Bienvenido a nuestra tienda")
+})
+app.get('/productos', (req, res) => {
+    newArchivo.getAll().then(resolve => {
+        res.end(`todo los productos: ${JSON.stringify(resolve)}`)
+    });
+
+})
+app.get('/productoRandom', (req, res) => {
+    let nRandom = parseInt((Math.random() * 4) + 1)
+    newArchivo.getById(nRandom).then(resolve => {
+        res.end(`producto aleatorio: ${JSON.stringify(resolve)}`)
+    });
+})
